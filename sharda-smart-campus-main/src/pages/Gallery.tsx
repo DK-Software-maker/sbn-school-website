@@ -4,10 +4,24 @@ import { useState } from "react";
 import heroImg from "@/assets/hero-school.jpg";
 import classroomImg from "@/assets/classroom.jpg";
 import labImg from "@/assets/lab.jpg";
+import e1 from "@/assets/01.jpg";
+import e2 from "@/assets/02.jpg";
+import e3 from "@/assets/03.jpg";
+import e4 from "@/assets/04.jpg";
+import e5 from "@/assets/05.jpg";
+import e6 from "@/assets/06.jpg";
+import e7 from "@/assets/07.jpg";
+import e8 from "@/assets/08.jpg";
+import e9 from "@/assets/09.jpg";
+import e10 from "@/assets/10.jpg";
+import e11 from "@/assets/11.jpg";
+import e12 from "@/assets/09.jpg";
+import e13 from "@/assets/10.jpg";
+import e14 from "@/assets/11.jpg";
 import sportsImg from "@/assets/sports.jpg";
 import libraryImg from "@/assets/library.jpg";
 
-const categories = ["All", "Campus", "Academics", "Sports", "Events"];
+const categories = ["All", "Campus", "Academics", "Sports", "Events","Farewell"];
 
 const photos = [
   { src: heroImg, cat: "Campus", label: "School Building" },
@@ -18,6 +32,22 @@ const photos = [
   { src: heroImg, cat: "Campus", label: "Campus Front View" },
   { src: classroomImg, cat: "Events", label: "Annual Day" },
   { src: labImg, cat: "Events", label: "Science Exhibition" },
+  { src: e1, cat: "Events", label: "REPUBLIC DAY" },
+  { src: e2, cat: "Events", label: "REPUBLIC DAY" },
+  { src: e3, cat: "Events", label: "REPUBLIC DAY" },
+  { src: e4, cat: "Events", label: "REPUBLIC DAY" },
+  { src: e4, cat: "Events", label: "REPUBLIC DAY" },
+  { src: e5, cat: "Events", label: "REPUBLIC DAY" },
+  { src: e6, cat: "Events", label: "REPUBLIC DAY" },
+  { src: e7, cat: "Events", label: "REPUBLIC DAY" },
+  { src: e8, cat: "Events", label: "REPUBLIC DAY" },
+  { src: e9, cat: "Events", label: "REPUBLIC DAY" },
+  { src: e10, cat: "Events", label: "REPUBLIC DAY" },
+  { src: e11, cat: "Events", label: "REPUBLIC DAY" },
+  { src: e12, cat: "Events", label: "REPUBLIC DAY" },
+  { src: e13, cat: "Events", label: "REPUBLIC DAY" },
+  { src: e14, cat: "Events", label: "REPUBLIC DAY" },
+
 ];
 
 const Gallery = () => {
