@@ -1,18 +1,30 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { GraduationCap, ClipboardList } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImg from "@/assets/hero-school.jpg";
-
+import heroImg1 from "@/assets/h1.jpg";
+import heroImg2 from "@/assets/h2.jpg";
+import heroImg3 from "@/assets/h3.jpg";
 const HeroSection = () => {
+  const images = [heroImg, heroImg1, heroImg2, heroImg3];
+const [current, setCurrent] = useState(0);
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrent((prev) => (prev + 1) % images.length);
+  }, 3000);
+
+  return () => clearInterval(interval);
+}, []);
   return (
     <section className="relative h-[85vh] min-h-[500px] flex items-center overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroImg})` }}
-      />
+     <div
+  className="absolute inset-0 bg-contain bg-center bg-no-repeat"
+  style={{ backgroundImage: `url(${images[current]})` }}
+/>
       <div className="absolute inset-0 bg-gradient-to-r from-navy/85 via-navy/60 to-transparent" />
-
+  
       <div className="relative z-10 container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
