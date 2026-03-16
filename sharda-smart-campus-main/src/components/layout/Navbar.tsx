@@ -4,6 +4,7 @@ import { Menu, X, Phone, Mail } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import banner from "@/assets/banner.jpg";
 
+
 const navLinks = [
   { label: "Home", path: "/" },
   { label: "About Us", path: "/about" },
@@ -105,6 +106,13 @@ const Navbar = () => {
           )}
         </AnimatePresence>
       </nav>
+      <div className="bg-red-600 text-white py-2 overflow-hidden">
+  <div className="marquee-track">
+    <span className="marquee-text">
+      🎓 Admissions Open for Session 2025-26 | Apply Now | Limited Seats Available
+    </span>
+  </div>
+</div>
     </>
   );
 };
