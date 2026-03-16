@@ -109,7 +109,7 @@ const Navbar = () => {
 <div className="sticky top-[70px] z-40 bg-red-600 text-white overflow-hidden">
   <div className="marquee-track">
     <a
-      href="/admissions"
+      href="/Admissions"
       className="marquee-text font-semibold text-sm"
     >
       🎓 Admissions Open for Session 2025-26 | Click Here to Fill Admission Enquiry Form
