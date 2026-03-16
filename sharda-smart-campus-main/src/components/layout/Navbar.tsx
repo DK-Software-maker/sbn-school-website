@@ -106,11 +106,14 @@ const Navbar = () => {
           )}
         </AnimatePresence>
       </nav>
-      <div className="bg-red-600 text-white py-2 overflow-hidden">
+<div className="sticky top-0 z-50 bg-red-600 text-white overflow-hidden">
   <div className="marquee-track">
-    <span className="marquee-text">
-      🎓 Admissions Open for Session 2025-26 | Apply Now | Limited Seats Available
-    </span>
+    <a
+      href="/admissions"
+      className="marquee-text font-semibold text-sm"
+    >
+      🎓 Admissions Open for Session 2025-26 | Click Here to Fill Admission Enquiry Form
+    </a>
   </div>
 </div>
     </>
