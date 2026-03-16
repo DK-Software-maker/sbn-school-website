@@ -9,7 +9,7 @@ const navLinks = [
   { label: "Home", path: "/" },
   { label: "About Us", path: "/about" },
   { label: "Academics", path: "/academics" },
-  { label: "Admissions", path: "/admissions" },
+  { label: "Admissions", path: "/Admissions" },
   { label: "Results", path: "/results" },
   { label: "Notices", path: "/notices" },
   { label: "Gallery", path: "/gallery" },
