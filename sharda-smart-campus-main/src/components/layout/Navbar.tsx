@@ -112,7 +112,7 @@ const Navbar = () => {
       href="/Admissions"
       className="marquee-text font-semibold text-sm"
     >
-      🎓 Admissions Open for Session 2025-26 | Click Here to Fill Admission Enquiry Form
+      🎓 Admissions Open for Session 2026-27 |    नवीन सत्र 2026-27 के लिए प्रवेश प्रारंभ !   | Click Here to Fill Admission Enquiry Form
     </a>
   </div>
 </div>

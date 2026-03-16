@@ -13,7 +13,8 @@ import Gallery from "./pages/Gallery";
 import Faculty from "./pages/Faculty";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-
+import BottomButtons from "@/components/home/BottomButtons";
+import RequestCallback from "@/components/home/RequestCallback";
 const queryClient = new QueryClient();
 
 const App = () => (

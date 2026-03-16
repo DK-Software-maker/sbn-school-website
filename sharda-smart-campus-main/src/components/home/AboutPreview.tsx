@@ -32,6 +32,7 @@ const AboutPreview = () => (
         </AnimatedSection>
       </div>
     </div>
+    
   </section>
 );
 
