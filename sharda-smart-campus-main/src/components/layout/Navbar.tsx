@@ -4,12 +4,11 @@ import { Menu, X, Phone, Mail } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import banner from "@/assets/banner.jpg";
 
-
 const navLinks = [
   { label: "Home", path: "/" },
   { label: "About Us", path: "/about" },
   { label: "Academics", path: "/academics" },
-  { label: "Admissions", path: "/Admissions" },
+  { label: "Admissions", path: "/admissions" },
   { label: "Results", path: "/results" },
   { label: "Notices", path: "/notices" },
   { label: "Gallery", path: "/gallery" },
@@ -106,16 +105,18 @@ const Navbar = () => {
           )}
         </AnimatePresence>
       </nav>
-<div className="sticky top-[70px] z-40 bg-red-600 text-white overflow-hidden">
-  <div className="marquee-track">
-    <a
-      href="/Admissions"
-      className="marquee-text font-semibold text-sm"
-    >
-      🎓 Admissions Open for Session 2026-27 |    नवीन सत्र 2026-27 के लिए प्रवेश प्रारंभ !   | Click Here to Fill Admission Enquiry Form
-    </a>
-  </div>
-</div>
+
+      {/* Admission Moving Ribbon */}
+      <div className="sticky top-[70px] z-40 bg-red-600 text-white overflow-hidden">
+        <div className="marquee-track">
+          <Link
+            to="/admissions"
+            className="marquee-text font-semibold text-sm"
+          >
+            🎓 Admissions Open for Session 2026-27 | नवीन सत्र 2026-27 के लिए प्रवेश प्रारंभ ! | Click Here to Fill Admission Enquiry Form
+          </Link>
+        </div>
+      </div>
     </>
   );
 };
