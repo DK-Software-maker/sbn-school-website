@@ -106,7 +106,7 @@ const Navbar = () => {
           )}
         </AnimatePresence>
       </nav>
-<div className="sticky top-0 z-50 bg-red-600 text-white overflow-hidden">
+<div className="sticky top-[70px] z-40 bg-red-600 text-white overflow-hidden">
   <div className="marquee-track">
     <a
       href="/admissions"
