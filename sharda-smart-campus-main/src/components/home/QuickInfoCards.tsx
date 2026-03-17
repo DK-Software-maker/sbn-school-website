@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const cards = [
-  { icon: GraduationCap, title: "Admissions Open", desc: "Session 2025-26 admissions now open for all classes.", link: "/admissions", color: "bg-primary" },
+  { icon: GraduationCap, title: "Admissions Open", desc: "Session 2026-27 admissions now open for all classes.", link: "/admissions", color: "bg-primary" },
   { icon: Newspaper, title: "Latest News", desc: "Stay updated with school announcements and news.", link: "/notices", color: "bg-gold" },
   { icon: ClipboardList, title: "Results", desc: "Check your examination results online.", link: "/results", color: "bg-primary" },
   { icon: CalendarDays, title: "Events", desc: "Upcoming events, functions, and celebrations.", link: "/notices", color: "bg-gold" },

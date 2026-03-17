@@ -1,94 +1,144 @@
-import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Youtube } from "lucide-react";
-import logo from "@/assets/logo.png";
+import {
+  Facebook,
+  Instagram,
+  Youtube,
+  Mail,
+  Phone,
+  MapPin
+} from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="gradient-primary text-primary-foreground">
-      <div className="container mx-auto section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* School Info */}
+    <>
+      {/* 🔻 FOOTER */}
+      <footer className="bg-gradient-to-r from-red-900 to-red-700 text-gray-200 pt-12 pb-6 mt-16">
+
+        <div className="max-w-7xl mx-auto px-5 grid md:grid-cols-4 gap-10">
+
+          {/* 🏫 School Info */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <img src={logo} alt="Logo" className="h-12 w-12 object-contain bg-card rounded-full p-1" />
-              <div>
-                <h3 className="font-heading font-bold text-lg">Sharda Bal Niketan</h3>
-                <p className="text-sm opacity-80">Sr. Sec. School</p>
-              </div>
-            </div>
-            <p className="text-sm opacity-80 leading-relaxed">
-              Providing quality education and nurturing young minds since establishment. 
-              Building a brighter future for the students of Seekwara and beyond.
+            <h2 className="text-2xl font-bold text-white mb-3">
+              SBN School Seekwara
+            </h2>
+            <p className="text-sm text-gray-300 leading-relaxed">
+              Providing quality education with discipline, values and modern learning 
+              for a brighter future.
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* 🔗 Quick Links */}
           <div>
-            <h4 className="font-heading font-bold text-lg mb-4">Quick Links</h4>
+            <h3 className="text-lg font-semibold text-white mb-4">
+              Quick Links
+            </h3>
+
             <ul className="space-y-2 text-sm">
               {[
-                { label: "About Us", path: "/about" },
-                { label: "Admissions", path: "/admissions" },
-                { label: "Academics", path: "/academics" },
-                { label: "Results", path: "/results" },
-                { label: "Gallery", path: "/gallery" },
-                { label: "Contact", path: "/contact" },
-              ].map((l) => (
-                <li key={l.path}>
-                  <Link to={l.path} className="opacity-80 hover:opacity-100 transition-opacity">
-                    {l.label}
-                  </Link>
+                { name: "Home", link: "/" },
+                { name: "About Us", link: "/about" },
+                { name: "Admission", link: "/admission" },
+                { name: "Results", link: "/results" },
+                { name: "Contact", link: "/contact" }
+              ].map((item, i) => (
+                <li key={i}>
+                  <a
+                    href={item.link}
+                    className="hover:text-white hover:translate-x-1 transition-all inline-block"
+                  >
+                    {item.name}
+                  </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* 📞 Contact */}
           <div>
-            <h4 className="font-heading font-bold text-lg mb-4">Contact Us</h4>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
-                <span className="opacity-80"> Mudtrasili Road Golua, Seekwara, Jalore</span>
+            <h3 className="text-lg font-semibold text-white mb-4">
+              Contact Us
+            </h3>
+
+            <ul className="space-y-3 text-sm text-gray-300">
+
+              <li className="flex items-center gap-2 hover:text-white transition">
+                <MapPin size={16} />
+                Mudtrasili Road Golua,Seekwara, Jalore, Rajasthan
               </li>
-              <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4 shrink-0" />
-                <span className="opacity-80">+91-9414992634, +91-8619555830</span>
+
+              <li className="flex items-center gap-2 hover:text-white transition">
+                <Phone size={16} />
+                <a href="tel:+9194149926">
+                  +91-9414992634
+                </a>
               </li>
-              <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4 shrink-0" />
-                <span className="opacity-80">shardasikwara@gmail.com</span>
+
+              <li className="flex items-center gap-2 hover:text-white transition">
+                <Mail size={16} />
+                <a href="shardasikwara@gmail.com">
+                  shardasikwara
+                </a>
               </li>
+
             </ul>
           </div>
 
-          {/* Social */}
+          {/* 🌐 Social */}
           <div>
-            <h4 className="font-heading font-bold text-lg mb-4">Follow Us</h4>
-            <div className="flex gap-3">
-              {[Facebook, Twitter, Instagram, Youtube].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"
-                >
-                  <Icon className="w-5 h-5" />
-                </a>
-              ))}
-            </div>
-            <div className="mt-6">
-              <h5 className="font-medium mb-2 text-sm">School Hours</h5>
-              <p className="text-sm opacity-80">Mon - Sat: 8:00 AM - 2:00 PM</p>
-              <p className="text-sm opacity-80">Office: 8:00 AM - 4:00 PM</p>
-            </div>
-          </div>
-        </div>
-      </div>
+            <h3 className="text-lg font-semibold text-white mb-4">
+              Follow Us
+            </h3>
 
-      <div className="border-t border-primary-foreground/20 py-4 px-4 text-center text-sm opacity-70">
-        © {new Date().getFullYear()} Sharda Bal Niketan Sr. Sec. School, Seekwara (Jalore). All rights reserved.
-      </div>
-    </footer>
+            <div className="flex gap-4">
+
+              {/* 👉 links fill karna */}
+              <a href="#" target="_blank"
+                className="bg-red-800 p-3 rounded-full hover:bg-blue-600 hover:scale-110 transition-all">
+                <Facebook size={18} />
+              </a>
+
+              <a href="#" target="_blank"
+                className="bg-red-800 p-3 rounded-full hover:bg-pink-600 hover:scale-110 transition-all">
+                <Instagram size={18} />
+              </a>
+
+              <a href="#" target="_blank"
+                className="bg-red-800 p-3 rounded-full hover:bg-red-500 hover:scale-110 transition-all">
+                <Youtube size={18} />
+              </a>
+
+            </div>
+
+            <p className="text-xs mt-4 text-gray-400">
+              Stay connected with us
+            </p>
+          </div>
+
+        </div>
+
+        {/* 🔻 Bottom Line */}
+        <div className="border-t border-red-600 mt-10 pt-5 text-center text-sm text-gray-300">
+          © {new Date().getFullYear()} SBN School Seekwara. All Rights Reserved.
+        </div>
+
+        {/* 👨‍💻 Developer Credit */}
+        <div className="text-center text-xs text-gray-400 mt-2">
+          Designed & Developed by{" "}
+          <span className="text-white font-semibold">
+            Dinesh Patel
+          </span>
+        </div>
+
+      </footer>
+
+      {/* 💬 WHATSAPP FLOAT BUTTON */}
+      <a
+        href="https://wa.me/91-6376004863" // 👉 apna number yaha daalo
+        target="_blank"
+        className="fixed bottom-5 left-5 z-50 bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full shadow-lg flex items-center gap-2 animate-bounce"
+      >
+        💬 Chat
+      </a>
+    </>
   );
 };
 

@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, Mail } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Menu, X, Phone, Mail, ClipboardList } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import banner from "@/assets/banner.jpg";
 
@@ -18,11 +18,30 @@ const navLinks = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+  const [roll, setRoll] = useState("");
   const location = useLocation();
+  const navigate = useNavigate();
+
+  // 🔥 Popup control
+  useEffect(() => {
+    const resultLive = true; // 👉 ON/OFF
+
+    if (resultLive) {
+      setTimeout(() => setShowPopup(true), 1500);
+    }
+  }, []);
+
+  // 🔍 Search
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (!roll) return alert("Enter Roll Number");
+    navigate(`/result/${roll}`);
+  };
 
   return (
     <>
-      {/* Top bar */}
+      {/* 🔝 Top bar */}
       <div className="gradient-primary text-primary-foreground text-sm py-2 px-4 hidden md:block">
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex items-center gap-6">
@@ -37,8 +56,8 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Navbar */}
-      <nav className="bg-white shadow-md sticky top-0 z-50">
+      {/* 🧭 Navbar */}
+      <nav className="bg-white shadow-md sticky top-0 z-[999]">
         <div className="container mx-auto flex items-center justify-between px-4 py-3">
 
           {/* Banner */}
@@ -76,7 +95,7 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile menu */}
+        {/* 📱 Mobile menu */}
         <AnimatePresence>
           {open && (
             <motion.div
@@ -106,17 +125,57 @@ const Navbar = () => {
         </AnimatePresence>
       </nav>
 
-      {/* Admission Moving Ribbon */}
-      <div className="sticky top-[70px] z-40 bg-red-600 text-white overflow-hidden">
+      {/* 🔴 Admission Ribbon */}
+      <div className="sticky top-[80px] z-40 bg-red-600 text-white overflow-hidden">
         <div className="marquee-track">
-          <Link
-            to="/admissions"
-            className="marquee-text font-semibold text-sm"
-          >
+          <Link to="/admissions" className="marquee-text font-semibold text-sm">
             🎓 Admissions Open for Session 2026-27 | नवीन सत्र 2026-27 के लिए प्रवेश प्रारंभ ! | Click Here to Fill Admission Enquiry Form
           </Link>
         </div>
       </div>
+
+      {/* 🎉 RESULT POPUP */}
+      {showPopup && (
+        <div className="fixed inset-0 flex items-center justify-center z-[50]">
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+
+          <div className="relative bg-white rounded-xl p-6 w-[90%] max-w-md text-center z-[60]">
+            <h2 className="text-xl font-bold mb-2">🎉 Result Declared!</h2>
+
+            <form onSubmit={handleSearch} className="flex gap-2 mb-3">
+              <input
+                value={roll}
+                onChange={(e) => setRoll(e.target.value)}
+                placeholder="Enter Roll No"
+                className="flex-1 border px-3 py-2 rounded"
+              />
+              <button className="bg-blue-600 text-white px-4 rounded">
+                Go
+              </button>
+            </form>
+
+            <Link to="/results" className="text-blue-600 underline">
+              Open Result Page
+            </Link>
+
+            <button
+              onClick={() => setShowPopup(false)}
+              className="block mt-3 text-gray-400 text-sm"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* 📌 Floating Button */}
+      <Link
+        to="/results"
+        className="fixed bottom-5 right-5 z-[40] bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-full shadow-xl flex items-center gap-2"
+      >
+        <ClipboardList className="w-5 h-5" />
+        Result
+      </Link>
     </>
   );
 };

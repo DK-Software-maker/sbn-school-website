@@ -10,105 +10,124 @@ import heroImg2 from "@/assets/h2.jpg";
 import heroImg3 from "@/assets/h3.jpg";
 
 const HeroSection = () => {
+  const images = [heroImg, heroImg1, heroImg2, heroImg3];
+  const [current, setCurrent] = useState(0);
 
-const images = [heroImg, heroImg1, heroImg2, heroImg3];
-const [current, setCurrent] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
-useEffect(() => {
+  return (
+    <section className="relative h-[90vh] min-h-[550px] flex items-center overflow-hidden">
 
-const interval = setInterval(() => {
-setCurrent((prev) => (prev + 1) % images.length);
-}, 4000);
+      {/* 🔄 Background Slider */}
+      <div className="absolute inset-0">
+        {images.map((img, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-all duration-1000 ${
+              index === current ? "opacity-100 scale-100" : "opacity-0 scale-110"
+            }`}
+            style={{
+              backgroundImage: `url(${img})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
+        ))}
+      </div>
 
-return () => clearInterval(interval);
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
 
-}, []);
+      {/* Content */}
+      <div className="relative z-10 container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="max-w-2xl"
+        >
+          <p className="text-yellow-400 font-semibold mb-3 tracking-widest uppercase text-sm">
+            Excellence in Education
+          </p>
 
-return (
-<section className="relative h-[85vh] min-h-[500px] flex items-center overflow-hidden">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-4">
+            Sharda Bal Niketan
+            <span className="block text-2xl md:text-3xl lg:text-4xl mt-2 font-medium opacity-90">
+              Sr. Sec. School
+            </span>
+          </h1>
 
-{/* Background Image Slider */}
-<div className="absolute inset-0">
+          <p className="text-white/80 text-lg mb-2">
+            Mudtrasili Road Golua, Seekwara, Jalore
+          </p>
 
-{images.map((img, index) => (
+          <p className="text-white/70 text-base mb-8 max-w-lg">
+            Nurturing young minds with values, knowledge, and skills for a brighter tomorrow.
+          </p>
 
-<div
-key={index}
-className={`absolute inset-0 transition-opacity duration-1000 
-${index === current ? "opacity-100" : "opacity-0"}`}
-style={{
-backgroundImage: `url(${img})`,
-backgroundSize: "cover",
-backgroundPosition: "center 30%",
-backgroundRepeat: "no-repeat"
-}}
-/>
+          {/* 🔥 Highlight Buttons */}
+          <div className="flex flex-wrap gap-5">
 
-))}
+            {/* 🎓 Admission Button */}
+            <motion.div whileHover={{ scale: 1.05 }}>
+              <Button
+                asChild
+                size="lg"
+                className="bg-yellow-400 text-black font-bold px-6 py-3 shadow-lg"
+              >
+                <Link to="/admissions">
+                  <GraduationCap className="w-5 h-5 mr-2" />
+                  Admission Enquiry
+                </Link>
+              </Button>
+            </motion.div>
 
-</div>
+            {/* 📊 RESULT BUTTON (SUPER HIGHLIGHT) */}
+            <motion.div
+              whileHover={{ scale: 1.08 }}
+              className="relative"
+            >
+              {/* Glow effect */}
+              <span className="absolute inset-0 bg-blue-500 blur-xl opacity-40 animate-pulse rounded-xl"></span>
 
-{/* Dark overlay */}
-<div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+              <Button
+                asChild
+                size="lg"
+                className="relative bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg px-7 py-3 shadow-2xl border border-white/20"
+              >
+                <Link to="/results">
+                  <ClipboardList className="w-5 h-5 mr-2" />
+                  🎯 Check Result Now
+                </Link>
+              </Button>
+            </motion.div>
 
-{/* Hero Content */}
-<div className="relative z-10 container mx-auto px-4">
+          </div>
 
-<motion.div
-initial={{ opacity: 0, x: -40 }}
-animate={{ opacity: 1, x: 0 }}
-transition={{ duration: 0.8 }}
-className="max-w-2xl"
->
+          {/* 🔘 Slider dots */}
+          <div className="flex gap-2 mt-6">
+            {images.map((_, index) => (
+              <div
+                key={index}
+                onClick={() => setCurrent(index)}
+                className={`h-2 w-2 rounded-full cursor-pointer ${
+                  index === current
+                    ? "bg-yellow-400 w-6"
+                    : "bg-white/50"
+                }`}
+              />
+            ))}
+          </div>
 
-<p className="text-yellow-400 font-medium mb-2 tracking-wider uppercase text-sm">
-Excellence in Education
-</p>
-
-<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4">
-Sharda Bal Niketan
-<span className="block text-2xl md:text-3xl lg:text-4xl mt-2 font-normal opacity-90">
-Sr. Sec. School
-</span>
-</h1>
-
-<p className="text-white/80 text-lg mb-2">
-Mudtrasili Road Golua, Seekwara, Jalore
-</p>
-
-<p className="text-white/70 text-base mb-8 max-w-lg">
-Nurturing young minds with values, knowledge, and skills for a brighter tomorrow.
-</p>
-
-<div className="flex flex-wrap gap-4">
-
-<Button asChild size="lg" className="bg-yellow-400 text-black font-semibold hover:opacity-90">
-<Link to="/admissions">
-<GraduationCap className="w-5 h-5 mr-2" />
-Admissions Open
-</Link>
-</Button>
-
-<Button
-asChild
-size="lg"
-variant="outline"
-className="border-white/40 text-white bg-white/10 hover:bg-white/20"
->
-<Link to="/results">
-<ClipboardList className="w-5 h-5 mr-2" />
-Check Results
-</Link>
-</Button>
-
-</div>
-
-</motion.div>
-
-</div>
-
-</section>
-);
+        </motion.div>
+      </div>
+    </section>
+  );
 };
 
 export default HeroSection;
