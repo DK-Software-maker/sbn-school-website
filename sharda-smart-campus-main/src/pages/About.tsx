@@ -3,6 +3,8 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 import { BookOpen, Target, Eye, Users } from "lucide-react";
 import principalImg from "@/assets/principal.jpg";
 import heroImg from "@/assets/hero-school.jpg";
+import chairmanImg from "@/assets/chairman.jpg";
+import vprincipalImg from "@/assets/vprincipal.jpg";
 
 const About = () => (
   <Layout>
@@ -86,30 +88,78 @@ const About = () => (
       </div>
     </section>
 
-    {/* Management */}
-    <section className="section-padding bg-card">
-      <div className="container mx-auto text-center">
-        <AnimatedSection>
-          <p className="text-gold font-medium uppercase tracking-wider text-sm mb-2">Our Team</p>
-          <h2 className="section-title mb-8">School Management</h2>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            {[
-              { role: "Chairman", name: "श्री माधाराम धाणक" },
-              { role: "Principal", name: "श्री करताराम चौधरी" },
-              { role: "Vice Principal", name: "सुश्री प्रेरणा चौधरी" },
-            ].map((m, i) => (
-              <div key={i} className="bg-background rounded-xl p-6 border border-border card-hover">
-                <div className="w-16 h-16 rounded-full bg-accent mx-auto mb-3 flex items-center justify-center">
-                  <Users className="w-7 h-7 text-accent-foreground" />
-                </div>
-                <h4 className="font-heading font-bold text-foreground">{m.name}</h4>
-                <p className="text-sm text-muted-foreground">{m.role}</p>
-              </div>
-            ))}
+   {/* Management */}
+<section className="section-padding bg-gradient-to-b from-background to-card">
+  <div className="container mx-auto text-center">
+    <AnimatedSection>
+
+      {/* Heading */}
+      <p className="text-gold font-semibold uppercase tracking-widest text-sm mb-2">
+        Our Leadership
+      </p>
+      <h2 className="section-title mb-12">School Management</h2>
+
+      {/* Grid */}
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+
+        {[
+          {
+            role: "Chairman",
+            name: "श्री माधाराम धाणक",
+            img: chairmanImg,
+            msg: "विद्यालय का उद्देश्य केवल शिक्षा देना नहीं, बल्कि विद्यार्थियों के सर्वांगीण विकास पर ध्यान देना है। हम चाहते हैं कि हमारे छात्र न केवल पढ़ाई में उत्कृष्ट हों, बल्कि संस्कार, अनुशासन और नैतिक मूल्यों में भी अग्रणी बनें। शिक्षा के माध्यम से हम उन्हें एक सफल और जिम्मेदार नागरिक बनाने का प्रयास करते हैं।",
+          },
+          {
+            role: "Principal",
+            name: "श्री करताराम चौधरी",
+            img: principalImg,
+            msg: "हमारा लक्ष्य है कि प्रत्येक विद्यार्थी को गुणवत्तापूर्ण शिक्षा प्रदान की जाए, जिससे वह अपने जीवन में सफलता प्राप्त कर सके। विद्यालय में हम आधुनिक शिक्षा के साथ-साथ नैतिक शिक्षा पर भी विशेष ध्यान देते हैं। हमारा विश्वास है कि एक अच्छा विद्यार्थी ही भविष्य का अच्छा नागरिक बनता है।",
+          },
+          {
+            role: "Vice Principal",
+            name: "सुश्री प्रेरणा चौधरी",
+            img: vprincipalImg,
+            msg: "अनुशासन, परिश्रम और सकारात्मक सोच ही सफलता की कुंजी है। हम अपने विद्यार्थियों को एक ऐसा वातावरण प्रदान करते हैं, जहाँ वे आत्मविश्वास के साथ सीख सकें और अपने सपनों को साकार कर सकें। हमारा प्रयास है कि हर छात्र अपने लक्ष्य को प्राप्त करे और जीवन में आगे बढ़े।",
+          },
+        ].map((m, i) => (
+          <div
+            key={i}
+            className="bg-background rounded-2xl overflow-hidden border border-border shadow-md hover:shadow-2xl transition duration-300"
+          >
+
+            {/* Square Full Image */}
+            <div className="w-full h-65 overflow-hidden">
+              <img
+                src={m.img}
+                alt={m.name}
+                className="w-full h-full object-cover hover:scale-105 transition duration-300"
+              />
+            </div>
+
+            {/* Content */}
+            <div className="p-6 text-left">
+              <h4 className="font-heading font-bold text-lg text-foreground">
+                {m.name}
+              </h4>
+
+              <p className="text-sm text-gold font-semibold mb-3">
+                {m.role}
+              </p>
+
+              {/* Big Hindi Paragraph */}
+              <p className="text-[15px] leading-relaxed text-muted-foreground font-serif">
+                {m.msg}
+              </p>
+            </div>
+
           </div>
-        </AnimatedSection>
+        ))}
+
       </div>
-    </section>
+
+    </AnimatedSection>
+  </div>
+</section>
   </Layout>
 );
 
