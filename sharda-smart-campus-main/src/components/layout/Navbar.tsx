@@ -134,40 +134,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* 🎉 RESULT POPUP */}
-      {showPopup && (
-        <div className="fixed inset-0 flex items-center justify-center z-[50]">
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
-
-          <div className="relative bg-white rounded-xl p-6 w-[90%] max-w-md text-center z-[60]">
-            <h2 className="text-xl font-bold mb-2">🎉 Result Declared!</h2>
-
-            <form onSubmit={handleSearch} className="flex gap-2 mb-3">
-              <input
-                value={roll}
-                onChange={(e) => setRoll(e.target.value)}
-                placeholder="Enter Roll No"
-                className="flex-1 border px-3 py-2 rounded"
-              />
-              <button className="bg-blue-600 text-white px-4 rounded">
-                Go
-              </button>
-            </form>
-
-            <Link to="/results" className="text-blue-600 underline">
-              Open Result Page
-            </Link>
-
-            <button
-              onClick={() => setShowPopup(false)}
-              className="block mt-3 text-gray-400 text-sm"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
-
       {/* 📌 Floating Button */}
       <Link
         to="/results"
