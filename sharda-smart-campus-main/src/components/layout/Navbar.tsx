@@ -126,7 +126,7 @@ const Navbar = () => {
       </nav>
 
       {/* 🔴 Admission Ribbon */}
-      <div className="sticky top-[65px] z-40 bg-red-600 text-white overflow-hidden">
+      <div className="sticky top-[70px] z-40 bg-red-600 text-white overflow-hidden">
         <div className="marquee-track">
           <Link to="/admissions" className="marquee-text font-semibold text-sm">
             🎓 Admissions Open for Session 2026-27 | नवीन सत्र 2026-27 के लिए प्रवेश प्रारंभ ! | Click Here to Fill Admission Enquiry Form
